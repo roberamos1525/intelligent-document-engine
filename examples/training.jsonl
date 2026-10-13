@@ -1,0 +1,12 @@
+{"label": "finance", "text": "Please pay the attached invoice by bank transfer within thirty days to avoid late fees."}
+{"label": "finance", "text": "The board approved the annual budget including capital expenditure for new servers."}
+{"label": "finance", "text": "Expense claims must include receipts and are reimbursed with the monthly payroll."}
+{"label": "legal", "text": "This agreement is governed by the laws of the state and disputes go to arbitration."}
+{"label": "legal", "text": "The tenant shall pay rent monthly and the landlord may terminate the lease for breach."}
+{"label": "legal", "text": "The parties agree to keep confidential information secret and not disclose it."}
+{"label": "hr", "text": "Employees accrue twenty days of paid vacation per year and must request leave in advance."}
+{"label": "hr", "text": "New hires complete onboarding, meet their buddy and finish compliance training in week one."}
+{"label": "hr", "text": "Performance reviews happen twice a year and managers give feedback on career growth."}
+{"label": "engineering", "text": "Deploy the service with Kubernetes and roll back the release if health checks fail."}
+{"label": "engineering", "text": "The postmortem identified an expired certificate on the load balancer as the root cause."}
+{"label": "engineering", "text": "Unit tests and integration tests run in the continuous integration pipeline on every commit."}

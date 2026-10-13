@@ -1,0 +1,54 @@
+# Example configuration file. Use with:  idengine --config examples/engine.toml ...
+# or IDE_CONFIG_FILE=examples/engine.toml. Environment variables override these values.
+
+[storage]
+data_dir = "var"
+
+[ingest]
+max_file_bytes = 20971520          # 20 MiB
+allowed_types = ["pdf", "docx", "txt", "markdown", "html"]
+max_pdf_pages = 500
+near_duplicate_distance = 3        # SimHash Hamming distance
+auto_classify = true
+
+[chunking]
+max_tokens = 200
+overlap_tokens = 40
+respect_headings = true
+
+[embeddings]
+provider = "hashing"               # hashing | lsa | sentence-transformers
+dim = 256
+
+[index]
+kind = "hnsw"                      # flat | ivf | hnsw
+hnsw_m = 16
+hnsw_ef_construction = 100
+hnsw_ef_search = 64
+
+[search]
+rrf_k = 60
+default_top_k = 10
+
+[rag]
+retrieve_k = 20
+rerank_k = 5
+context_token_budget = 900
+
+[llm]
+provider = "extractive"            # extractive | ollama | openai (HTTP adapters are opt-in)
+
+[jobs]
+workers = 2
+max_attempts = 3
+
+[classifier]
+algorithm = "naive_bayes"          # naive_bayes | logistic
+
+[api]
+auth_enabled = true
+rate_limit_per_minute = 600
+
+[logging]
+level = "INFO"
+json_format = true

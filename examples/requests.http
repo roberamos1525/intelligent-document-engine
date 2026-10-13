@@ -1,0 +1,72 @@
+### Sample requests (VS Code REST Client / JetBrains HTTP client format).
+### Start the server first:  IDE_API_KEYS=dev-admin-key:admin idengine serve
+@base = http://127.0.0.1:8000
+@key = dev-admin-key
+
+### Health (no key needed)
+GET {{base}}/health
+
+### Upload and process synchronously
+POST {{base}}/v1/documents?wait=true
+X-API-Key: {{key}}
+Content-Type: multipart/form-data; boundary=BOUNDARY
+
+--BOUNDARY
+Content-Disposition: form-data; name="file"; filename="invoice.txt"
+Content-Type: text/plain
+
+< ../tests/fixtures/golden/corpus/f_invoice.txt
+--BOUNDARY
+Content-Disposition: form-data; name="tags"
+
+finance,invoices
+--BOUNDARY--
+
+### List documents (filters: status, category, language, doc_type, tag, q)
+GET {{base}}/v1/documents?doc_type=txt&sort=created_at&order=desc&limit=20
+X-API-Key: {{key}}
+
+### Hybrid search with a metadata filter
+POST {{base}}/v1/search?include_text=false
+X-API-Key: {{key}}
+Content-Type: application/json
+
+{"query": "late payment fee", "mode": "hybrid", "top_k": 5,
+ "filters": {"tags": "finance", "document_date": {"$gte": "2024-01-01"}}}
+
+### Ask a question (RAG with citations)
+POST {{base}}/v1/ask
+X-API-Key: {{key}}
+Content-Type: application/json
+
+{"question": "What is the total amount due on invoice INV-7781?"}
+
+### Summarise free text
+POST {{base}}/v1/summarize
+X-API-Key: {{key}}
+Content-Type: application/json
+
+{"text": "Paste a long text here. It will be summarised with TextRank.", "max_sentences": 2}
+
+### Train the classifier (admin)
+POST {{base}}/v1/classifier/train
+X-API-Key: {{key}}
+Content-Type: application/json
+
+{"algorithm": "naive_bayes", "test_ratio": 0.25, "examples": [
+  {"label": "finance", "text": "Pay the invoice within thirty days."},
+  {"label": "finance", "text": "The budget caps travel spending."},
+  {"label": "legal", "text": "This agreement is governed by Delaware law."},
+  {"label": "legal", "text": "The tenant may terminate the lease with notice."}
+]}
+
+### Rebuild indexes in the background (admin)
+POST {{base}}/v1/admin/reindex
+X-API-Key: {{key}}
+Content-Type: application/json
+
+{"refit": true, "background": true}
+
+### Prometheus metrics
+GET {{base}}/metrics
+X-API-Key: {{key}}
