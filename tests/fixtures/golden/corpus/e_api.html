@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>API Rate Limiting Design</title><meta name="author" content="Platform Team"></head>
+<body>
+<h1>API Rate Limiting Design</h1>
+<p>The public API protects shared capacity with a token bucket limiter applied per API key.</p>
+<h2>Limits</h2>
+<p>Each key may send 600 requests per minute with bursts of up to 60 requests. Limits are configurable per customer plan.</p>
+<h2>Client Behaviour</h2>
+<p>When the limit is exceeded the API responds with HTTP status 429 Too Many Requests and a Retry-After header that tells the client how many seconds to wait.</p>
+<h2>Storage</h2>
+<p>Bucket state is kept in memory on each gateway node and synchronised every second.</p>
+</body>
+</html>

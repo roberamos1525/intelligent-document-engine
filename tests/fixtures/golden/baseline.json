@@ -1,0 +1,33 @@
+{
+  "dataset": "golden-v1",
+  "metrics": {
+    "classification.accuracy": 1.0,
+    "classification.macro_f1": 1.0,
+    "qa.abstention_accuracy": 1.0,
+    "qa.answer_recall": 1.0,
+    "qa.citation_accuracy": 1.0,
+    "qa.exact_match": 0.9333,
+    "qa.f1": 0.9882,
+    "retrieval.hybrid.mrr": 1.0,
+    "retrieval.hybrid.ndcg@10": 0.9858,
+    "retrieval.hybrid.precision@3": 0.3485,
+    "retrieval.hybrid.recall@1": 0.9773,
+    "retrieval.hybrid.recall@10": 1.0,
+    "retrieval.hybrid.recall@3": 1.0,
+    "retrieval.hybrid.recall@5": 1.0,
+    "retrieval.lexical.mrr": 1.0,
+    "retrieval.lexical.ndcg@10": 0.9858,
+    "retrieval.lexical.precision@3": 0.3485,
+    "retrieval.lexical.recall@1": 0.9773,
+    "retrieval.lexical.recall@10": 1.0,
+    "retrieval.lexical.recall@3": 1.0,
+    "retrieval.lexical.recall@5": 1.0,
+    "retrieval.semantic.mrr": 0.9318,
+    "retrieval.semantic.ndcg@10": 0.9313,
+    "retrieval.semantic.precision@3": 0.3333,
+    "retrieval.semantic.recall@1": 0.8409,
+    "retrieval.semantic.recall@10": 1.0,
+    "retrieval.semantic.recall@3": 0.9773,
+    "retrieval.semantic.recall@5": 1.0
+  }
+}

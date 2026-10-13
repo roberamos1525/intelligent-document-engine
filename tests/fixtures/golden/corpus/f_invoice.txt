@@ -1,0 +1,14 @@
+NORTHWIND SUPPLIES INVOICE
+
+Invoice number: INV-7781
+Date: April 2, 2024
+
+Bill To: Contoso Manufacturing Ltd., 48 Harbor Road, Portland.
+
+Payment Terms
+The total amount due is $8,940.00. Payment is due within 45 days of the invoice date. Late payments are charged a fee of 2% per month on the outstanding balance. Payments should be made by bank transfer quoting the invoice number.
+
+Line Items
+Steel fasteners, 2,000 units at $3.20 each. Packaging materials and freight, $2,540.00.
+
+Questions about this invoice can be sent to accounts@northwind.example or by phone on +1 503-555-0142.

@@ -1,0 +1,13 @@
+DEPLOYMENT RUNBOOK
+
+Strategy
+Services are released with blue-green deployments. The new version is deployed next to the old one and traffic is switched only after health checks pass.
+
+Database Migrations
+Database migrations run before the traffic switch and must be backwards compatible with the previous release.
+
+Scaling
+The horizontal autoscaler keeps between 3 and 12 replicas and adds replicas when average CPU utilisation stays above 65 percent for five minutes.
+
+Rollback
+If error rates rise after a release, roll back with kubectl rollout undo and switch traffic back to the previous colour. Rollbacks must be announced in the incident channel.

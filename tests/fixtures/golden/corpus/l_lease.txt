@@ -1,0 +1,16 @@
+OFFICE LEASE AGREEMENT
+
+1. Parties
+This lease is made between Harborview Properties LLC as landlord and Contoso Manufacturing Ltd. as tenant for office space on the fourth floor of 200 Market Street.
+
+2. Term
+The lease term is five years beginning July 1, 2023.
+
+3. Rent
+The monthly rent is $14,500, payable on the first day of each month. A security deposit equal to two months of rent is due at signing.
+
+4. Utilities and Maintenance
+The tenant is responsible for electricity, internet and cleaning. The landlord maintains the roof, elevators and heating systems.
+
+5. Termination
+Either party may terminate the lease early by giving 90 days written notice and paying a fee equal to three months of rent.
