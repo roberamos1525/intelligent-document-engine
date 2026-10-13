@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "intelligent-document-engine"
+version = "0.1.0"
+description = "Local-first document intelligence: ingestion, metadata, classification, hybrid search and RAG without paid APIs."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Robert Ramos" }]
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Framework :: FastAPI",
+]
+dependencies = [
+    "fastapi==0.143.0",
+    "uvicorn==0.54.0",
+    "pydantic==2.14.1",
+    "python-multipart==0.0.32",
+    "pypdf==6.20.0",
+    "python-docx==1.2.0",
+    "numpy==2.4.6",
+    "httpx==0.28.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "ruff==0.17.0"]
+
+[project.scripts]
+idengine = "idengine.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+idengine = ["analysis/profiles/*.txt", "py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = ["slow: longer-running tests (evaluation over the golden dataset)"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "N", "C4", "PT", "RET"]
+ignore = ["RUF001", "RUF002", "RUF003", "B008"]
+
+[tool.ruff.lint.per-file-ignores]
+# Compound assertions and broad ValueError checks are deliberate in tests.
+"tests/**" = ["N802", "N806", "PT011", "PT018", "RUF012"]

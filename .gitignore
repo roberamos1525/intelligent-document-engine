@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+build/
+dist/
+htmlcov/
+.coverage
+.env
+# runtime state (SQLite, blobs, indexes)
+var/
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
